@@ -4,11 +4,13 @@ import minism.hellospring.domain.Member;
 import minism.hellospring.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
+//@Service
+@Transactional // JPA를 통한 모든 데이터 변경은 트랜잭션 안에서 실행해야 한다
 public class MemberService {
 // 클래스명에 커서 위치 후 ALT + ENTER -> 'Create Test': Test 코드 자동 생성
 
@@ -20,7 +22,7 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
-    @Autowired
+//    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
